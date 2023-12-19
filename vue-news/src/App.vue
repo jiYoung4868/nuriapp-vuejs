@@ -1,6 +1,7 @@
 <template>
   <div id="app">
- hello
+    <!--url이 만약 news라면 아래에 NewsView로 태그 생성-->
+<router-view></router-view>
   </div>
 </template>
 

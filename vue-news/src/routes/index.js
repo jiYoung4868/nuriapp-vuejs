@@ -9,7 +9,7 @@ import ItemView from '../views/ItemView.vue';
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
-    mode: 'history',
+    mode: 'history', //#값 제거
     routes: [
         {
             //path: url 주소

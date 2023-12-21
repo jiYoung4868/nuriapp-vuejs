@@ -17,7 +17,7 @@ export default {
     created(){
         
         console.log(this.$route.params.id);    
-        const userName = this.$route.params.id;
+        const userName = this.$route.params.id; //path에서 :id로 넘겨받은 것을 userName에 등록
         // axios.get(`https://api.hnpwa.com/v0/user/${this.$route.params.id}.json`);
         this.$store.dispatch('FETCH_USER', userName);
         }

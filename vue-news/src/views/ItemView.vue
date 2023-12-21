@@ -1,6 +1,6 @@
 <template>
     <div>
-    <section class="header-container">
+    <section>
         <!--질문 상세 정보-->
             <div class="user-container">
                 <div>
@@ -40,12 +40,10 @@ import {mapGetters} from 'vuex';
 export default {
     computed: {
         ...mapGetters(['fetchedItem']),
-    
     },
     created(){
         console.log(this.$route.params.id);
         const itemId = this.$route.params.id;
-        console.log(itemId)
         this.$store.dispatch('FETCH_ITEM', itemId);
     }
 }
@@ -53,7 +51,7 @@ export default {
 
 <style scoped>
 .user-container{
-    display: felx;
+    display: flex;
     align-items: center;
     padding: 0.5rem;
 }

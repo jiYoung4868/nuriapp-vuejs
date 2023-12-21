@@ -22,6 +22,9 @@ function fetchJobsList(){
 function fetchUserInfo(username){
     return axios.get(`${config.baseUrl}user/${username}.json`); //.json 추가$$$$
 }
+function fetchItemList(id){
+    return axios.get(`${config.baseUrl}item/${id}.json`);
+}
 
 // 3. 꺼내주기
 export {
@@ -29,6 +32,7 @@ export {
     fetchAskList,
     fetchJobsList,
     fetchUserInfo,
+    fetchItemList,
 }
 
 // const api = {

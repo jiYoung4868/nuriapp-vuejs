@@ -11,7 +11,7 @@
 export default {
     computed: {
             userInfo(){
-                return this.$store.state.user;
+                return this.$store.state.user; //줄이기
             }
         },
     created(){

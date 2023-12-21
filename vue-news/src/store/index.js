@@ -9,17 +9,21 @@ Vue.use(Vuex);
 
 
 export const store = new Vuex.Store({
-
+    // strict: process.env.NODE_ENV !== 'production',
 state: {
     news: [],
     jobs: [], //빈배열만들기
     ask: [],
     user: {},
+    item: {},
 },
 mutations,
 getters: {
     fetchedAsk(state){
         return state.ask;
+    },
+    fetchedItem(state){
+        return state.item;
     }
 },
 actions

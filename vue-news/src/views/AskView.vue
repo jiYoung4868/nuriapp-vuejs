@@ -1,18 +1,17 @@
 <template>
   <div>
-   <div v-for="item in fetchedAsk">{{  item.title  }}</div>
-  </div>
-  <!--item은 한번 접근할때 받아오는 값-->
+    <p v-for="item in fetchedAsk"><a v-bind:href="item.url">{{ item.title }}</a>
+  <small>{{ item.time_ago }} by {{ item.user }}</small></p></div>
 </template>
 
 <script>
 
-import {mapState, mapGetters} from 'vuex';
+import {mapGetters} from 'vuex';
 
 export default {
 
   computed:{
-    
+
     // 3번 방법
     //... ==> 배열 풀어주는 문법
     ...mapGetters([

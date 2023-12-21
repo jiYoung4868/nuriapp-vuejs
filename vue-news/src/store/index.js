@@ -14,6 +14,7 @@ state: {
     news: [],
     jobs: [], //빈배열만들기
     ask: [],
+    user: {},
 },
 mutations,
 getters: {

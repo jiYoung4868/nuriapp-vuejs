@@ -1,7 +1,7 @@
 <template>
   <div>
-    
-    <div>
+    <list-item></list-item>
+    <!-- <div>
     <ul class="news-list">
       <li v-for="item in fetchedAsk" :key="item.id" class="post">
         <div class="points">
@@ -15,49 +15,55 @@
             by <router-link v-bind:to="`/user/${item.user}`" class="link-text">{{ item.user }}</router-link>
           </small>
         </div>
-      </li></ul></div>
+      </li></ul></div> -->
     </div>
 </template>
 
 <script>
 
-import {mapGetters} from 'vuex';
+import ListItem from '../components/ListItem.vue';
+
+// import {mapGetters} from 'vuex';
 
 export default {
 
-  computed:{
-
-    // 3번 방법
-    //... ==> 배열 풀어주는 문법
-    ...mapGetters([
-      'fetchedAsk'
-  ]),
-
-    //   ...mapGetters({
-    //   'fetchedAsk' : 'fetchedAsk'
-    // }),
-
-    // 2번 방법
-    // ...mapState({
-    //   fetchedAsk: state => state.ask
-    // })
-
-    // 1번 방법
-    // ask(){
-    //   return this.$store.state;
-    // }
+  components: {
+    ListItem
   },
+
+//   computed:{
+
+//     // 3번 방법
+//     //... ==> 배열 풀어주는 문법
+//     ...mapGetters([
+//       'fetchedAsk'
+//   ]),
+
+//     //   ...mapGetters({
+//     //   'fetchedAsk' : 'fetchedAsk'
+//     // }),
+
+//     // 2번 방법
+//     // ...mapState({
+//     //   fetchedAsk: state => state.ask
+//     // })
+
+//     // 1번 방법
+//     // ask(){
+//     //   return this.$store.state;
+//     // }
+//   },
   
-//befoureMount나 create에서 data요청 많이함
-//mounted는 화면이 다시그려지게 됨
-  created(){
-   this.$store.dispatch('FETCH_ASK');
-},
+// //befoureMount나 create에서 data요청 많이함
+// //mounted는 화면이 다시그려지게 됨
+//   created(){
+//    this.$store.dispatch('FETCH_ASK');
+// },
 }
 </script>
 
-<style scoped>
-.news-list{
+<style>
+/* .news-list{
   margin: 0;
   padding: 0;
 }
@@ -80,6 +86,6 @@ margin: 0;
 }
 .link-text{
   color: #828282;
-}
+} */
 
 </style>

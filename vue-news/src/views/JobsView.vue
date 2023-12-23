@@ -1,7 +1,7 @@
 <template>
  <div>
-
-    <div>
+  <list-item></list-item>
+    <!-- <div>
     <div>
     <ul class="news-list">
       <li v-for="job in this.$store.state.jobs" :key="job.id" class="post">
@@ -17,39 +17,46 @@
           </small>
         </div>
       </li></ul></div>
-    </div>
+    </div> -->
 
 </div>
 </template>
 <script>
 
+import ListItem from '../components/ListItem.vue';
 // import {fetchJobsList} from '../api/index.js';
 
 export default {
+
+components: {
+ListItem,
+},
+
+}
 
 // data(){
 //   return {
 //     jobs: []
 //   }
 // },
-created(){
+// created(){
 
-  this.$store.dispatch('FETCH_JOBS');
-  // var vm = this;
+//   this.$store.dispatch('FETCH_JOBS');
+//   // var vm = this;
 
-  // fetchJobsList()
-  // .then(response => this.jobs = response.data)
-  // .catch(error=> console.log(error));
+//   // fetchJobsList()
+//   // .then(response => this.jobs = response.data)
+//   // .catch(error=> console.log(error));
 
 
-},
+// },
 
-}
+
 </script>
 
 
 <style scoped>
-.news-list{
+/* .news-list{
   margin: 0;
   padding: 0;
 }
@@ -72,6 +79,6 @@ margin: 0;
 }
 .link-text{
   color: #828282;
-}
+} */
 
 </style>

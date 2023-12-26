@@ -2,7 +2,7 @@
   
 <div>
   <ul class="news-list">
-    <li v-for="item in listItems" class="post">
+    <li v-for="item in listItems" v-bind:key="item.id" class="post">
       <div class="points">
         {{ item.points || 0 }}
       </div>
@@ -32,20 +32,20 @@
 <script>
 export default {
 
-  created() {
-    // this.$store.dispatch('FETCH_NEWS');
-    // console.log(this.$route.path === '/news'); //그럼 news로 가면 true, ask로 가면 false가 찍힘
-    const name = this.$route.name;
-    console.log("[jy] name: " + name)
-    if( name === 'news'){
-      this.$store.dispatch('FETCH_NEWS');
-    } else if (name === 'ask'){
-      this.$store.dispatch('FETCH_ASK');
-    } else if (name === 'jobs'){
-      this.$store.dispatch('FETCH_JOBS');
-    }
+//   created() {
+//     // this.$store.dispatch('FETCH_NEWS');
+//     // console.log(this.$route.path === '/news'); //그럼 news로 가면 true, ask로 가면 false가 찍힘
+//     const name = this.$route.name;
+//     console.log("[jy] name: " + name)
+//     if( name === 'news'){
+//       this.$store.dispatch('FETCH_NEWS');
+//     } else if (name === 'ask'){
+//       this.$store.dispatch('FETCH_ASK');
+//     } else if (name === 'jobs'){
+//       this.$store.dispatch('FETCH_JOBS');
+//     }
 
- },
+//  },
 
  computed: {
   listItems(){

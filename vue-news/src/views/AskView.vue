@@ -22,6 +22,7 @@
 <script>
 
 import ListItem from '../components/ListItem.vue';
+import bus from '../utils/bus.js';
 
 // import {mapGetters} from 'vuex';
 
@@ -30,6 +31,22 @@ export default {
   components: {
     ListItem
   },
+  created(){
+  bus.$emit('start:spinner');
+  setTimeout(()=>{
+
+  this.$store.dispatch('FETCH_ASK')
+  .then(()=>{
+    console.log('fetched');
+    bus.$emit('end:spinner');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+  }, 3000);
+  
+}
 
 //   computed:{
 
@@ -56,9 +73,6 @@ export default {
   
 // //befoureMount나 create에서 data요청 많이함
 // //mounted는 화면이 다시그려지게 됨
-  created(){
-   this.$store.dispatch('FETCH_ASK');
-},
 }
 </script>
 

@@ -7,6 +7,7 @@ export default{
                 console.log("[jy]response.data: " + response.data)
                 // state.news = response.data; //state에 바로 담을 수 없어서 context 이용하여 mutation 호출
                 context.commit('SET_NEWS', response.data); //mutations 호출
+                return response;
             })
             .catch(error => {
                 console.log("[jy]error: " + error);

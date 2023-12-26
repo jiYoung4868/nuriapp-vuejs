@@ -2,7 +2,7 @@ import { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchComment
 
 export default{
     FETCH_NEWS(context) {
-        fetchNewsList()
+        return fetchNewsList()
             .then(response => {
                 console.log("[jy]response.data: " + response.data)
                 // state.news = response.data; //state에 바로 담을 수 없어서 context 이용하여 mutation 호출
@@ -14,7 +14,7 @@ export default{
             });
     },
     FETCH_JOBS({ commit }) {
-        fetchJobsList()
+        return fetchJobsList()
             .then(({ data }) => {
                 console.log("[jy] response.data: " + data)
                 commit('SET_JOBS', data);
@@ -24,7 +24,7 @@ export default{
             });
     },
     FETCH_ASK({ commit }) {
-        fetchAskList()
+        return fetchAskList()
             .then(({ data }) => {
                 console.log("[jy] response.data: " + data)
                 commit('SET_ASK', data);
@@ -34,7 +34,7 @@ export default{
             });
     },
     FETCH_USER({ commit }, name){
-        fetchUserInfo(name)
+        return fetchUserInfo(name)
         .then(({ data }) => {
             commit('SET_USER', data);
         })
@@ -45,7 +45,7 @@ export default{
 
     },
     FETCH_ITEM({ commit }, id){
-        fetchCommentItem(id)
+        return fetchCommentItem(id)
         .then(({ data }) => {
             console.log("[jy] data: "+data)
             console.log("hello")
@@ -56,9 +56,20 @@ export default{
         });
     
     },
+    //#2
     FETCH_LIST({commit}, pageName){
-        fetchList(pageName)
-        .then(({data}) => commit('SET_LIST', data))
+        return fetchList(pageName)
+        .then(response => {
+            console.log(4);
+            commit('SET_LIST', response.data);
+            return response;
+        })
         .catch(error => console.log(error));
+        
+        // //#3
+        // return fetchList(pageName)
+        // //#4
+        // .then(({data}) => commit('SET_LIST', data))
+        // .catch(error => console.log(error));
     },
 }

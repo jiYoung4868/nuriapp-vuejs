@@ -16,6 +16,7 @@ state: {
     ask: [],
     user: {},
     item: {},
+    list: [],
 },
 mutations,
 getters: {

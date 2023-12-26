@@ -11,8 +11,13 @@ function fetchNewsList(){
     return axios.get(`${config.baseUrl}news/1.json`);
 }
 
-function fetchAskList(){
-    return axios.get(`${config.baseUrl}ask/1.json`);
+async function fetchAskList(){
+    try{
+    const response = axios.get(`${config.baseUrl}ask/1.json`); 
+    return response;
+}    catch(error){
+        console.log(error);
+    }
 }
 
 function fetchJobsList(){
@@ -25,8 +30,12 @@ function fetchUserInfo(username){
 function fetchCommentItem(id){
     return axios.get(`${config.baseUrl}item/${id}.json`);
 }
-function fetchList(pageName){
-    return axios.get(`${config.baseUrl}${pageName}/1.json`);
+async function fetchList(pageName){
+    try { 
+        return await axios.get(`${config.baseUrl}${pageName}/1.json`);
+    } catch (error) {
+    console.log(error);
+    }
 }
 
 // 3. 꺼내주기

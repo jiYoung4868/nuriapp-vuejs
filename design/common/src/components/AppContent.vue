@@ -13,7 +13,7 @@
 export default {
   props: {
     items: {
-      type: Array,
+      type: Array, // array로 안들어오면 오류띄움
       required: true,
     },
   },

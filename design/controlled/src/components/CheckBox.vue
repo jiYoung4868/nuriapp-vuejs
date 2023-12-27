@@ -1,9 +1,18 @@
 <template>
-  <input type="checkbox">
+  <input type="checkbox" :value="value" @click="toggleCheckBox">
 </template>
 
 <script>
 export default {
-  
+  //@input 이벤트
+  //:value 값
+  props: ['value'],
+  methods: {
+    toggleCheckBox(){
+      this.$emit('input', !this.value)
+    }
+  }
 }
 </script>
+
+<!--아래로는 prop을 내리고 위로는 emit-->

@@ -6,12 +6,24 @@
   <title>Render Function</title>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <!-- <p>{{ message }}</p> -->
+    <!--인스턴스 영역-->
+  </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     new Vue({
       el: '#app',
+      data: {
+        message: 'Hello Vue',
+      },
+      template: '<p>{{ message }}</p>',
+      redner: function(createElement){
+        return createElement('p', 'this.message');
+        //return createElement('p' , 'Hello Vue'); //message로 받지 않음
+        // return createElement('태그 이름', '태그 속성', '하위 태그 내용');
+      }
     })
   </script>
 </body>
